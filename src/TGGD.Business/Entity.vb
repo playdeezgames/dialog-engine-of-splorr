@@ -5,8 +5,12 @@ Public MustInherit Class Entity(Of TEntityData As EntityData)
 
     Protected MustOverride ReadOnly Property EntityData As TEntityData
 
-    Public Sub Clear() Implements IEntity.Clear
+    Public Overridable Sub Clear() Implements IEntity.Clear
         EntityData.Metadatas.Clear()
+        EntityData.CounterMaximums.Clear()
+        EntityData.CounterMinimums.Clear()
+        EntityData.Counters.Clear()
+        EntityData.Tags.Clear()
     End Sub
 
     Public Sub SetMetadata(metadataId As String, metadataValue As String) Implements IEntity.SetMetadata
