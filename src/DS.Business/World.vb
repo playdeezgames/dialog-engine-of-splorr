@@ -14,6 +14,7 @@ Public Class World
     Public Overrides Sub Clear()
         MyBase.Clear()
         EntityData.DS.Clear()
+        EntityData.OB.Clear()
     End Sub
 
     Protected Overrides ReadOnly Property EntityData As WorldData
@@ -41,5 +42,19 @@ Public Class World
                 }
             }
         Return DSObject.Create(EntityData, dsId)
+    End Function
+
+    Public Function CreateOB(obId As Integer, obs As String, ob1 As Integer, ob2 As Integer, ob3 As Integer) As IOBObject Implements IWorld.CreateOB
+        EntityData.OB(obId) = New OBData With
+            {
+                .OBs = obs,
+                .OB = New Dictionary(Of Integer, Integer) From
+                {
+                    {1, ob1},
+                    {2, ob2},
+                    {3, ob3}
+                }
+            }
+        Return OBObject.Create(EntityData, obId)
     End Function
 End Class
