@@ -12,6 +12,37 @@ Public Class WorldModel
     Public Sub Reset() Implements IWorldModel.Reset
         Entity.Clear()
         Entity.SetCounter(Counters.SC, 215)
+        CreateLocations()
+        CreateObjects()
+    End Sub
+
+    Private Sub CreateObjects()
+        Entity.CreateOB(1, "a tag which says: >> NEEDS TURBO <<", 11, 5, 0)
+        Entity.CreateOB(2, "anti-matter fuel", 12, 5, 5)
+        Entity.CreateOB(3, "blaster", 13, 7, 0)
+        Entity.CreateOB(4, "communicator", 14, 9, 0)
+        Entity.CreateOB(5, "a very surprised guard", 15, 9, 0)
+        Entity.CreateOB(6, "map of the ship", 16, 29, 20)
+        Entity.CreateOB(7, "some keys", 17, 9, 0)
+        Entity.CreateOB(8, "a shinestone necklace", 18, 10, 20)
+        Entity.CreateOB(9, "Princess Leya's cape", 21, 14, 5)
+        Entity.CreateOB(10, "McDonald's hamburger", 22, 15, 0)
+        Entity.CreateOB(11, "a cassette tape", 23, 7, 0)
+        Entity.CreateOB(12, "a turboencabulator", 24, 17, 5)
+        Entity.CreateOB(13, "an evil looking scientist", 25, 17, 0)
+        Entity.CreateOB(14, "secret attack plans", 26, 0, 20)
+        Entity.CreateOB(15, "death ray schematic", 27, 9, 20)
+        Entity.CreateOB(16, "cloaking device", 28, 17, 20)
+        Entity.CreateOB(17, "micro laser gun", 29, 24, 20)
+        Entity.CreateOB(18, "I.D. card", 31, 17, 0)
+        Entity.CreateOB(19, "malidium crystals (the treasury!)", 32, 26, 30)
+        Entity.CreateOB(20, "a sign which says: >> OUT OF ORDER <<", 33, 3, 0)
+        Entity.CreateOB(21, "attack robot", 34, 35, 0)
+        Entity.CreateOB(22, "Princess Leya", 35, 34, 50)
+        Entity.CreateOB(23, "ammunition", 37, 7, 0)
+    End Sub
+
+    Private Sub CreateLocations()
         Entity.CreateDS(1, "I'm in the passenger & storage compartment of my space ship.
 There's an exit here to leave the ship.", 2, 0, 0, 0, 0, 3)
         Entity.CreateDS(2, "I'm in the cockpit of my space ship. A large red button says >> PRESS TO BLAST OFF <<", 0, 0, 1, 0, 0, 0)
