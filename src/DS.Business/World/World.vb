@@ -33,12 +33,12 @@ Public Class World
                 .DSs = dss,
                 .DS = New Dictionary(Of Integer, Integer) From
                 {
-                    {1, ds1},
-                    {2, ds2},
-                    {3, ds3},
-                    {4, ds4},
-                    {5, ds5},
-                    {6, ds6}
+                    {0, ds1},
+                    {1, ds2},
+                    {2, ds3},
+                    {3, ds4},
+                    {4, ds5},
+                    {5, ds6}
                 }
             }
         Return DSObject.Create(EntityData, dsId)
@@ -50,11 +50,19 @@ Public Class World
                 .OBs = obs,
                 .OB = New Dictionary(Of Integer, Integer) From
                 {
-                    {1, ob1},
-                    {2, ob2},
-                    {3, ob3}
+                    {0, ob1},
+                    {1, ob2},
+                    {2, ob3}
                 }
             }
         Return OBObject.Create(EntityData, obId)
+    End Function
+
+    Public Function GetDS(dsId As Integer) As IDSObject Implements IWorld.GetDS
+        Return DSObject.Create(Me.EntityData, dsId)
+    End Function
+
+    Public Function GetOBs() As IEnumerable(Of IOBObject) Implements IWorld.GetOBs
+        Return EntityData.OB.Keys.Select(Function(x) OBObject.Create(EntityData, x))
     End Function
 End Class
