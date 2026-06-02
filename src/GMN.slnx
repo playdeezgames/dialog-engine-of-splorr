@@ -1,0 +1,21 @@
+<Solution>
+  <Folder Name="/Business/">
+    <Project Path="GMN.Business/GMN.Business.vbproj" />
+    <Project Path="TGGD.Business.Tests/TGGD.Business.Tests.vbproj" />
+    <Project Path="TGGD.Business/TGGD.Business.vbproj" />
+  </Folder>
+  <Folder Name="/Data/">
+    <Project Path="GMN.Data/GMN.Data.vbproj" />
+    <Project Path="TGGD.Data/TGGD.Data.vbproj" />
+  </Folder>
+  <Folder Name="/Model/">
+    <Project Path="GMN.Model/GMN.Model.vbproj" />
+    <Project Path="TGGD.Model/TGGD.Model.vbproj" />
+  </Folder>
+  <Folder Name="/Solution Items/" />
+  <Folder Name="/UI/">
+    <Project Path="GMN.UI/GMN.UI.vbproj" />
+    <Project Path="TGGD.UI/TGGD.UI.vbproj" />
+  </Folder>
+  <Project Path="GuessMyNumber/GuessMyNumber.vbproj" />
+</Solution>

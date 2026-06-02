@@ -1,4 +1,5 @@
 Imports DS.Business
+Imports TGGD.Business
 Imports TGGD.Model
 
 Public Class WorldModel
@@ -51,6 +52,8 @@ Public Class WorldModel
         Entity.SetCounter(Counters.BL, 4)
         Entity.SetCounter(Counters.GF, 50)
         Entity.SetCounter(Counters.RV, 16396)
+        Entity.SetCounter(Counters.TC, 0) 'some sort of timer?!?
+        Entity.SetCounter(Counters.MD, 0) 'when the burger gets cold?
     End Sub
 
     Public Sub UpdateGF() Implements IWorldModel.UpdateGF
@@ -145,5 +148,25 @@ To the north an elevator.", LOCATION_36, LOCATION_31, LOCATION_0, LOCATION_0, LO
             world = DS.Business.World.Create(New Data.WorldData)
         End Try
         Return New WorldModel(world)
+    End Function
+
+    Public Function CheckGuardSpawn() As Boolean Implements IWorldModel.CheckGuardSpawn
+        If Entity.GetCounter(Counters.TC) < 25 Then
+            Return False
+        End If
+        If RNG.FromRange(1, Entity.GetCounter(Counters.GF)) <> 1 Then
+            Return False
+        End If
+        If Entity.GetCounter(Counters.TC) = 300 Then
+            Entity.SetCounter(Counters.GF, 20)
+        End If
+        Dim locationId = Entity.GetCounter(Counters.LC)
+        If locationId < LOCATION_3 OrElse locationId = LOCATION_9 OrElse locationId = LOCATION_26 OrElse locationId = LOCATION_37 Then
+            Return False
+        End If
+        If locationId > LOCATION_26 And locationId < LOCATION_31 Then
+            Return False
+        End If
+        Return True
     End Function
 End Class

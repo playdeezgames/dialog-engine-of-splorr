@@ -10,4 +10,5 @@ Public Interface IWorldModel
     ReadOnly Property HasLocationObjects As Boolean
     ReadOnly Property LocationObjects As IEnumerable(Of IObjectModel)
     ReadOnly Property LocationExits As IEnumerable(Of IExitModel)
+    Function CheckGuardSpawn() As Boolean
 End Interface

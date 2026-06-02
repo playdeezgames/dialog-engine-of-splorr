@@ -1,0 +1,21 @@
+<Solution>
+  <Folder Name="/Business/">
+    <Project Path="DS.Business/DS.Business.vbproj" Id="b7d9aaf0-2dc2-4676-b8a5-5bb7ce65867c" />
+    <Project Path="TGGD.Business.Tests/TGGD.Business.Tests.vbproj" />
+    <Project Path="TGGD.Business/TGGD.Business.vbproj" />
+  </Folder>
+  <Folder Name="/Data/">
+    <Project Path="DS.Data/DS.Data.vbproj" Id="058ff883-1f9c-43a2-a7ce-06881092543f" />
+    <Project Path="TGGD.Data/TGGD.Data.vbproj" />
+  </Folder>
+  <Folder Name="/Model/">
+    <Project Path="DS.Model/DS.Model.vbproj" Id="3f449702-8e2c-4b63-b3af-a418c45bfd64" />
+    <Project Path="TGGD.Model/TGGD.Model.vbproj" />
+  </Folder>
+  <Folder Name="/Solution Items/" />
+  <Folder Name="/UI/">
+    <Project Path="DS.UI/DS.UI.vbproj" Id="f834f840-7509-41fc-ae0b-188058963f09" />
+    <Project Path="TGGD.UI/TGGD.UI.vbproj" />
+  </Folder>
+  <Project Path="DogStar/DogStar.vbproj" Id="379a17ca-59e8-463f-b0de-faf92acd9a39" />
+</Solution>
