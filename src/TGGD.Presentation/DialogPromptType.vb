@@ -1,5 +1,4 @@
 ﻿Public Enum DialogPromptType
-    PROMPT_NONE
     PROMPT_CHOOSE
     PROMPT_STRING
     PROMPT_INTEGER

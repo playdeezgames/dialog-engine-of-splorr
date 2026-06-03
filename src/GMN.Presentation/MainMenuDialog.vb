@@ -9,7 +9,16 @@ Friend Class MainMenuDialog
     End Sub
 
     Public Overrides Function Run() As IDialogPrompt
-        Throw New NotImplementedException()
+        Return DialogPrompt.CreateChoicePrompt(
+            "Main Menu:",
+            DialogChoice.Create(
+                True,
+                "Quit",
+                ConfirmDialog(Of IDisplayContext).Launch(
+                    Context,
+                    "Are you sure you want to quit?",
+                    ExitDialog,
+                    AddressOf Relaunch)))
     End Function
 
     Protected Overrides Function Relaunch() As IDialog

@@ -22,8 +22,6 @@ Module Program
                 ReadDoublePrompt(prompt)
             Case DialogPromptType.PROMPT_INTEGER
                 ReadIntegerPrompt(prompt)
-            Case DialogPromptType.PROMPT_NONE
-                ReadNonePrompt(prompt)
             Case DialogPromptType.PROMPT_STRING
                 ReadStringPrompt(prompt)
             Case Else

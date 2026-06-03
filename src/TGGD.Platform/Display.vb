@@ -28,7 +28,8 @@ Public MustInherit Class Display
     End Property
 
     Protected Sub UpdateDialog(dialog As IDialog)
-        _prompt = dialog.Run()
+        _elements.Clear()
+        _prompt = dialog?.Run()
     End Sub
 
     Public Sub Render(Optional text As String = Nothing, Optional mood As String = Nothing, Optional newLine As Boolean = False) Implements IDisplayContext.Render

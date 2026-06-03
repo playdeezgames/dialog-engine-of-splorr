@@ -5,4 +5,4 @@
 
 Imports System.Diagnostics.CodeAnalysis
 
-<Assembly: SuppressMessage("Performance", "CA1859:Use concrete types when possible for improved performance", Justification:="<Pending>", Scope:="member", Target:="~F:GMN.Spectre.Program.moodColors")>
+<Assembly: SuppressMessage("Performance", "CA1859:Use concrete types when possible for improved performance", Justification:="Read only dictionaries like this are small lookup tables and should not suffer from performance problems.", Scope:="member", Target:="~F:GMN.Spectre.Program.moodColors")>
