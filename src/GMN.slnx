@@ -11,8 +11,14 @@
     <Project Path="GMN.Processing/GMN.Processing.vbproj" Id="0610f50c-50c9-407a-a0df-34197697562e" />
     <Project Path="TGGD.Processing/TGGD.Processing.vbproj" Id="83b62062-917b-4da5-b1c7-0aeaae17254d" />
   </Folder>
-  <Folder Name="/04_Presentation/" />
-  <Folder Name="/05_Platform/" />
+  <Folder Name="/04_Presentation/">
+    <Project Path="GMN.Presentation/GMN.Presentation.vbproj" Id="92d5984c-1225-452b-8b6a-4e2b8c4b21c5" />
+    <Project Path="TGGD.Presentation/TGGD.Presentation.vbproj" Id="057e3ef3-f5ee-470b-a0e5-528e52ee207c" />
+  </Folder>
+  <Folder Name="/05_Platform/">
+    <Project Path="GMN.Spectre/GMN.Spectre.vbproj" Id="cfdda54e-880a-4322-aab5-05da3458796b" />
+    <Project Path="TGGD.Platform/TGGD.Platform.vbproj" Id="c9ee3578-1289-4864-ad74-6570b8d71b59" />
+  </Folder>
   <Folder Name="/Legacy/">
     <Project Path="GuessMyNumber/GuessMyNumber.vbproj" />
   </Folder>
