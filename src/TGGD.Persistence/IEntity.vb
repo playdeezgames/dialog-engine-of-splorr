@@ -19,8 +19,9 @@ Public Interface IEntity
     Sub SetTags(ParamArray tagIds As String())
     Sub ClearTag(tagId As String)
     Sub ClearTags(ParamArray tagIds As String())
-    Sub ToggleTag(tagId As String)
+    Function ToggleTag(tagId As String) As Boolean
     Sub ToggleTags(ParamArray tagIds As String())
+    Sub AssignTag(tagId As String, value As Boolean)
     Sub SetDimension(dimensionId As String, dimensionValue As Double)
     Sub DefaultDimension(dimensionId As String, defaultValue As Double)
     Function GetDimension(dimensionId As String) As Double

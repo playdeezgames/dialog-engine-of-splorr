@@ -62,13 +62,14 @@ Public MustInherit Class Entity(Of TData As EntityData)
         Next
     End Sub
 
-    Public Sub ToggleTag(tagId As String) Implements IEntity.ToggleTag
+    Public Function ToggleTag(tagId As String) As Boolean Implements IEntity.ToggleTag
         If HasTag(tagId) Then
             ClearTag(tagId)
         Else
             SetTag(tagId)
         End If
-    End Sub
+        Return HasTag(tagId)
+    End Function
 
     Public Sub ToggleTags(ParamArray tagIds() As String) Implements IEntity.ToggleTags
         For Each tagId In tagIds
@@ -90,6 +91,14 @@ Public MustInherit Class Entity(Of TData As EntityData)
 
     Public Sub SetDimensionMaximum(dimensionId As String, dimensionMaximum As Double) Implements IEntity.SetDimensionMaximum
         Data.DimensionMaximums(dimensionId) = dimensionMaximum
+    End Sub
+
+    Public Sub AssignTag(tagId As String, value As Boolean) Implements IEntity.AssignTag
+        If value Then
+            SetTag(tagId)
+        Else
+            ClearTag(tagId)
+        End If
     End Sub
 
     Public Function GetMetadata(metadataId As String) As String Implements IEntity.GetMetadata

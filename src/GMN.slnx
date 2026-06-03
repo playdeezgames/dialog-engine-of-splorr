@@ -7,7 +7,10 @@
     <Project Path="GMN.Persistence/GMN.Persistence.vbproj" Id="e96cc1f6-9be0-4837-b642-dae8397cdb5f" />
     <Project Path="TGGD.Persistence/TGGD.Persistence.vbproj" Id="89c4e140-ebfe-40da-9386-fbabd333040b" />
   </Folder>
-  <Folder Name="/03_Processing/" />
+  <Folder Name="/03_Processing/">
+    <Project Path="GMN.Processing/GMN.Processing.vbproj" Id="0610f50c-50c9-407a-a0df-34197697562e" />
+    <Project Path="TGGD.Processing/TGGD.Processing.vbproj" Id="83b62062-917b-4da5-b1c7-0aeaae17254d" />
+  </Folder>
   <Folder Name="/04_Presentation/" />
   <Folder Name="/05_Platform/" />
   <Folder Name="/Legacy/">
