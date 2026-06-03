@@ -30,25 +30,21 @@ Module Program
     End Sub
 
     Private Sub ReadStringPrompt(prompt As IDialogPrompt)
-        Throw New NotImplementedException()
-    End Sub
-
-    Private Sub ReadNonePrompt(prompt As IDialogPrompt)
-        Throw New NotImplementedException()
+        prompt.Respond(text:=AnsiConsole.Ask(Of String)($"[olive]{Markup.Escape(prompt.Title)}[/]"))
     End Sub
 
     Private Sub ReadIntegerPrompt(prompt As IDialogPrompt)
-        Throw New NotImplementedException()
+        prompt.Respond(counter:=AnsiConsole.Ask(Of Integer)($"[olive]{Markup.Escape(prompt.Title)}[/]"))
     End Sub
 
     Private Sub ReadDoublePrompt(prompt As IDialogPrompt)
-        Throw New NotImplementedException()
+        prompt.Respond(dimension:=AnsiConsole.Ask(Of Double)($"[olive]{Markup.Escape(prompt.Title)}[/]"))
     End Sub
 
     Private Sub ReadChoosePrompt(prompt As IDialogPrompt)
         Dim selectionPrompt As New SelectionPrompt(Of Integer) With
             {
-                .Title = prompt.Title,
+                .Title = $"[olive]{Markup.Escape(prompt.Title)}[/]",
                 .Converter = Function(x) prompt.Choices(x)
             }
         selectionPrompt.AddChoices(Enumerable.Range(0, prompt.Choices.Count))
