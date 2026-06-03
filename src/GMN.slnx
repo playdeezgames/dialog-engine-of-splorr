@@ -1,21 +1,33 @@
 <Solution>
-  <Folder Name="/Business/">
+  <Folder Name="/01_Provision/">
+    <Project Path="GMN.Provision/GMN.Provision.vbproj" Id="c6fa8cf7-236b-41db-9763-4e30f33c84de" />
+    <Project Path="TGGD.Provision/TGGD.Provision.vbproj" Id="9ee01a7a-3b3d-481f-8185-175ce81b9fe9" />
+  </Folder>
+  <Folder Name="/02_Persistence/">
+    <Project Path="GMN.Persistence/GMN.Persistence.vbproj" Id="e96cc1f6-9be0-4837-b642-dae8397cdb5f" />
+    <Project Path="TGGD.Persistence/TGGD.Persistence.vbproj" Id="89c4e140-ebfe-40da-9386-fbabd333040b" />
+  </Folder>
+  <Folder Name="/03_Processing/" />
+  <Folder Name="/04_Presentation/" />
+  <Folder Name="/05_Platform/" />
+  <Folder Name="/Legacy/">
+    <Project Path="GuessMyNumber/GuessMyNumber.vbproj" />
+  </Folder>
+  <Folder Name="/Legacy/01_Data/">
+    <Project Path="GMN.Data/GMN.Data.vbproj" />
+    <Project Path="TGGD.Data/TGGD.Data.vbproj" />
+  </Folder>
+  <Folder Name="/Legacy/02_Business/">
     <Project Path="GMN.Business/GMN.Business.vbproj" />
     <Project Path="TGGD.Business.Tests/TGGD.Business.Tests.vbproj" />
     <Project Path="TGGD.Business/TGGD.Business.vbproj" />
   </Folder>
-  <Folder Name="/Data/">
-    <Project Path="GMN.Data/GMN.Data.vbproj" />
-    <Project Path="TGGD.Data/TGGD.Data.vbproj" />
-  </Folder>
-  <Folder Name="/Model/">
+  <Folder Name="/Legacy/03_Model/">
     <Project Path="GMN.Model/GMN.Model.vbproj" />
     <Project Path="TGGD.Model/TGGD.Model.vbproj" />
   </Folder>
-  <Folder Name="/Solution Items/" />
-  <Folder Name="/UI/">
+  <Folder Name="/Legacy/04_UI/">
     <Project Path="GMN.UI/GMN.UI.vbproj" />
     <Project Path="TGGD.UI/TGGD.UI.vbproj" />
   </Folder>
-  <Project Path="GuessMyNumber/GuessMyNumber.vbproj" />
 </Solution>
