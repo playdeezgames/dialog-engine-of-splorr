@@ -17,7 +17,6 @@
   </Folder>
   <Folder Name="/05_Platform/">
     <Project Path="GMN.Platform/GMN.Platform.vbproj" Id="d518f476-b969-46a9-af18-3516158e572c" />
-    <Project Path="GMN.Spectre/GMN.Spectre.vbproj" Id="cfdda54e-880a-4322-aab5-05da3458796b" />
     <Project Path="TGGD.Platform/TGGD.Platform.vbproj" Id="c9ee3578-1289-4864-ad74-6570b8d71b59" />
   </Folder>
   <Folder Name="/Legacy/">
@@ -40,4 +39,5 @@
     <Project Path="GMN.UI/GMN.UI.vbproj" />
     <Project Path="TGGD.UI/TGGD.UI.vbproj" />
   </Folder>
+  <Project Path="GMN.Spectre/GMN.Spectre.vbproj" Id="cfdda54e-880a-4322-aab5-05da3458796b" />
 </Solution>

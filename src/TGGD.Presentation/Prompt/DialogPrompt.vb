@@ -10,7 +10,7 @@
                    Optional fromDouble As Func(Of Double, IDialog) = Nothing)
         Me.PromptType = promptType
         Me.Title = title
-        Me._choices = choices.Where(Function(x) x.Enabled).ToArray
+        Me._choices = If(choices IsNot Nothing, choices.Where(Function(x) x.Enabled).ToArray, Nothing)
         Me.fromString = fromString
         Me.fromInteger = fromInteger
         Me.fromDouble = fromDouble
@@ -39,7 +39,7 @@
             Case DialogPromptType.PROMPT_CHOOSE
                 Return _choices(counter.Value).NextDialog()
             Case DialogPromptType.PROMPT_DOUBLE
-                Return fromDouble(dimension)
+                Return fromDouble(dimension.Value)
             Case DialogPromptType.PROMPT_INTEGER
                 Return fromInteger(counter.Value)
             Case DialogPromptType.PROMPT_STRING
@@ -49,7 +49,13 @@
         End Select
     End Function
 
-    Public Shared Function CreateChoicePrompt(title As String, ParamArray choices As IDialogChoice()) As IDialogPrompt
+    Public Shared Function CreateChoicePrompt(
+                                             title As String,
+                                             ParamArray choices As IDialogChoice()) As IDialogPrompt
         Return New DialogPrompt(DialogPromptType.PROMPT_CHOOSE, title, choices:=choices)
+    End Function
+
+    Public Shared Function CreateIntegerPrompt(title As String, fromInteger As Func(Of Integer, IDialog)) As IDialogPrompt
+        Return New DialogPrompt(DialogPromptType.PROMPT_INTEGER, title, fromInteger:=fromInteger)
     End Function
 End Class

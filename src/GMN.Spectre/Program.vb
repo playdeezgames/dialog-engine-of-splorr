@@ -62,5 +62,8 @@ Module Program
         Else
             AnsiConsole.Write(Markup.Escape(element.Text))
         End If
+        If element.NewLine Then
+            AnsiConsole.WriteLine()
+        End If
     End Sub
 End Module
