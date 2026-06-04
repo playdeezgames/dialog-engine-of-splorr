@@ -14,4 +14,5 @@ Public Interface IWorldModel
     Sub FinishGame()
     Sub ResetStatistics()
     ReadOnly Property GuessCount As Integer
+    ReadOnly Property Guess As Integer
 End Interface

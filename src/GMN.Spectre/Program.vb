@@ -8,6 +8,7 @@ Module Program
         Console.Title = "Guess My Number"
         Dim display As IDisplay = GMNDisplay.Create()
         While display.Running
+            AnsiConsole.Clear()
             For Each element In display.Elements
                 RenderElement(element)
             Next

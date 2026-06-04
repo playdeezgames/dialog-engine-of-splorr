@@ -9,7 +9,6 @@ Friend Class ResetStatisticsDialog
     End Sub
 
     Public Overrides Function Run() As IDialogPrompt
-        Context.Render(Grimoire.LINE_BREAK, newLine:=True)
         Context.Render("Statistics reset!", newLine:=True)
         Model.ResetStatistics()
         Return ExitDialog.Invoke.Run()

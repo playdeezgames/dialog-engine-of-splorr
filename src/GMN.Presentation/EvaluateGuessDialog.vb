@@ -9,7 +9,7 @@ Friend Class EvaluateGuessDialog
     End Sub
 
     Public Overrides Function Run() As IDialogPrompt
-        Context.Render(Grimoire.LINE_BREAK, newLine:=True)
+        Context.Render($"Yer guess: {Model.Guess}", newLine:=True)
         If Model.IsGuessHigh Then
             Context.Render($"That guess is too high!", newLine:=True)
             Return NewRoundDialog.Launch(Context, Model, ExitDialog).Invoke.Run()

@@ -61,12 +61,19 @@ Public Class WorldModel
         End Get
     End Property
 
+    Public ReadOnly Property Guess As Integer Implements IWorldModel.Guess
+        Get
+            Return Entity.GetCounter(Counters.GUESS)
+        End Get
+    End Property
+
     Public Sub StartGame() Implements IWorldModel.StartGame
         Entity.SetCounter(Counters.GUESS_COUNT, 0)
         Entity.SetCounter(Counters.TARGET_NUMBER, RNG.FromRange(Grimoire.MINIMUM_TARGET, Grimoire.MAXIMUM_TARGET))
     End Sub
 
     Public Sub MakeGuess(guess As Integer) Implements IWorldModel.MakeGuess
+        Entity.SetCounter(Counters.GUESS, guess)
         Entity.ChangeCounter(Counters.GUESS_COUNT, 1)
         Entity.AssignTag(Tags.TOO_HIGH, guess > Entity.GetCounter(Counters.TARGET_NUMBER))
         Entity.AssignTag(Tags.TOO_LOW, guess < Entity.GetCounter(Counters.TARGET_NUMBER))

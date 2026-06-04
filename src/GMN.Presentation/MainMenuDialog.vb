@@ -9,7 +9,6 @@ Friend Class MainMenuDialog
     End Sub
 
     Public Overrides Function Run() As IDialogPrompt
-        Context.Render(Grimoire.LINE_BREAK, newLine:=True)
         Context.Render($"Games Played: {Model.GamesPlayed}", newLine:=True)
         Dim averageScore = Model.AverageScore
         If averageScore.HasValue Then
