@@ -15,4 +15,5 @@ Public Interface IWorldModel
     Sub ResetStatistics()
     ReadOnly Property GuessCount As Integer
     ReadOnly Property Guess As Integer
+    ReadOnly Property IsQuittable As Boolean
 End Interface

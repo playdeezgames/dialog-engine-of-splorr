@@ -67,6 +67,12 @@ Public Class WorldModel
         End Get
     End Property
 
+    Public ReadOnly Property IsQuittable As Boolean Implements IWorldModel.IsQuittable
+        Get
+            Return Entity.HasTag(Tags.QUITTABLE)
+        End Get
+    End Property
+
     Public Sub StartGame() Implements IWorldModel.StartGame
         Entity.SetCounter(Counters.GUESS_COUNT, 0)
         Entity.SetCounter(Counters.TARGET_NUMBER, RNG.FromRange(Grimoire.MINIMUM_TARGET, Grimoire.MAXIMUM_TARGET))
@@ -93,13 +99,16 @@ Public Class WorldModel
         Entity.Save(Grimoire.SAVE_FILE_NAME)
     End Sub
 
-    Public Shared Function Create() As IWorldModel
+    Public Shared Function Create(quittable As Boolean) As IWorldModel
         Dim world As IWorld
         Try
             world = GMN.Persistence.World.Load(SAVE_FILE_NAME)
         Catch ex As Exception
             world = GMN.Persistence.World.Create(New Provision.GMNData)
         End Try
+        If quittable Then
+            world.SetTag(Tags.QUITTABLE)
+        End If
         Return New WorldModel(world)
     End Function
 

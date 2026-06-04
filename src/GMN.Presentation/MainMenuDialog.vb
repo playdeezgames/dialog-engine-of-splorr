@@ -36,7 +36,7 @@ Friend Class MainMenuDialog
                             AddressOf Relaunch),
                         AddressOf Relaunch)),
             DialogChoice.Create(
-                True,
+                Model.IsQuittable,
                 "Quit",
                 ConfirmDialog(Of IDisplayContext).Launch(
                     Context,

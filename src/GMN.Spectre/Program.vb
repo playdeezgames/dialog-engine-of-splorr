@@ -6,7 +6,7 @@ Imports TGGD.Presentation
 Module Program
     Sub Main(args As String())
         Console.Title = "Guess My Number"
-        Dim display As IDisplay = GMNDisplay.Create()
+        Dim display As IDisplay = GMNDisplay.Create(True)
         While display.Running
             AnsiConsole.Clear()
             For Each element In display.Elements

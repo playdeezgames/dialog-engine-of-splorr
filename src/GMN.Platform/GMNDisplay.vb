@@ -4,16 +4,19 @@ Imports TGGD.Platform
 
 Public Class GMNDisplay
     Inherits Display
-    Private Sub New()
 
+    Private ReadOnly quittable As Boolean
+
+    Private Sub New(quittable As Boolean)
+        Me.quittable = quittable
     End Sub
 
     Public Overrides Sub Start()
-        UpdateDialog(TitleDialog.Launch(Me, WorldModel.Create(), Function() Nothing).Invoke())
+        UpdateDialog(TitleDialog.Launch(Me, WorldModel.Create(quittable), Function() Nothing).Invoke())
     End Sub
 
-    Public Shared Function Create() As IDisplay
-        Dim result = New GMNDisplay
+    Public Shared Function Create(quittable As Boolean) As IDisplay
+        Dim result = New GMNDisplay(quittable)
         result.Start()
         Return result
     End Function
