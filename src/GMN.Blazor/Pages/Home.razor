@@ -1,0 +1,51 @@
+﻿@page "/"
+@using TGGD.Presentation
+@using TGGD.Platform
+@using GMN.Platform
+
+<PageTitle>Guess My Number (1 - 100)</PageTitle>
+
+@foreach(var element in display.Elements)
+{
+	<p>@element.Text</p>
+}
+
+@switch(display.Prompt.PromptType)
+{
+	case DialogPromptType.PROMPT_CHOOSE:
+		<p>@display.Prompt.Title</p>
+		foreach(int index in Enumerable.Range(0, display.Prompt.Choices.Length))
+		{
+			<button @onclick="()=>Choose(index)">@display.Prompt.Choices[index]</button>
+		}
+		break;
+	case DialogPromptType.PROMPT_INTEGER:
+		<p>@display.Prompt.Title</p>
+		<EditForm Model="@inputModel" OnValidSubmit="HandleSubmit">
+			<InputNumber @bind-Value="@inputModel.IntegerValue" />
+			<button type="submit">GO!</button>
+		</EditForm>
+		break;
+}
+
+@code
+{
+	InputModel inputModel = new();
+	IDisplay display = GMNDisplay.Create();
+	void Choose(int choice)
+	{
+		display.Prompt.Respond(counter: choice);
+	}
+	class InputModel
+	{
+		public int? IntegerValue { get; set; }
+	}
+	void HandleSubmit()
+	{
+		if (inputModel.IntegerValue != null)
+		{
+			display.Prompt.Respond(counter: inputModel.IntegerValue.Value);
+			inputModel.IntegerValue = null;
+		}
+	}
+}
