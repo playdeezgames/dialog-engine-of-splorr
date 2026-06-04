@@ -19,25 +19,5 @@
     <Project Path="GMN.Platform/GMN.Platform.vbproj" Id="d518f476-b969-46a9-af18-3516158e572c" />
     <Project Path="TGGD.Platform/TGGD.Platform.vbproj" Id="c9ee3578-1289-4864-ad74-6570b8d71b59" />
   </Folder>
-  <Folder Name="/Legacy/">
-    <Project Path="GuessMyNumber/GuessMyNumber.vbproj" />
-  </Folder>
-  <Folder Name="/Legacy/01_Data/">
-    <Project Path="GMN.Data/GMN.Data.vbproj" />
-    <Project Path="TGGD.Data/TGGD.Data.vbproj" />
-  </Folder>
-  <Folder Name="/Legacy/02_Business/">
-    <Project Path="GMN.Business/GMN.Business.vbproj" />
-    <Project Path="TGGD.Business.Tests/TGGD.Business.Tests.vbproj" />
-    <Project Path="TGGD.Business/TGGD.Business.vbproj" />
-  </Folder>
-  <Folder Name="/Legacy/03_Model/">
-    <Project Path="GMN.Model/GMN.Model.vbproj" />
-    <Project Path="TGGD.Model/TGGD.Model.vbproj" />
-  </Folder>
-  <Folder Name="/Legacy/04_UI/">
-    <Project Path="GMN.UI/GMN.UI.vbproj" />
-    <Project Path="TGGD.UI/TGGD.UI.vbproj" />
-  </Folder>
   <Project Path="GMN.Spectre/GMN.Spectre.vbproj" Id="cfdda54e-880a-4322-aab5-05da3458796b" />
 </Solution>

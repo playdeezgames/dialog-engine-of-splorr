@@ -58,4 +58,12 @@
     Public Shared Function CreateIntegerPrompt(title As String, fromInteger As Func(Of Integer, IDialog)) As IDialogPrompt
         Return New DialogPrompt(DialogPromptType.PROMPT_INTEGER, title, fromInteger:=fromInteger)
     End Function
+
+    Public Shared Function CreateDoublePrompt(title As String, fromDouble As Func(Of Double, IDialog)) As IDialogPrompt
+        Return New DialogPrompt(DialogPromptType.PROMPT_DOUBLE, title, fromDouble:=fromDouble)
+    End Function
+
+    Public Shared Function CreateStringPrompt(title As String, fromString As Func(Of String, IDialog)) As IDialogPrompt
+        Return New DialogPrompt(DialogPromptType.PROMPT_STRING, title, fromString:=fromString)
+    End Function
 End Class
