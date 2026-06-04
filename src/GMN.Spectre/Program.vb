@@ -1,3 +1,4 @@
+Imports GMN.Platform
 Imports Spectre.Console
 Imports TGGD.Platform
 Imports TGGD.Presentation
@@ -47,7 +48,7 @@ Module Program
                 .Title = $"[olive]{Markup.Escape(prompt.Title)}[/]",
                 .Converter = Function(x) prompt.Choices(x)
             }
-        selectionPrompt.AddChoices(Enumerable.Range(0, prompt.Choices.Count))
+        selectionPrompt.AddChoices(Enumerable.Range(0, prompt.Choices.Length))
         prompt.Respond(counter:=AnsiConsole.Prompt(selectionPrompt))
     End Sub
 

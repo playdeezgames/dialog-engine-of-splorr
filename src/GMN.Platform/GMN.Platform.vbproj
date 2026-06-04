@@ -1,8 +1,7 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk">
 
   <PropertyGroup>
-    <OutputType>Exe</OutputType>
-    <RootNamespace>GMN.Spectre</RootNamespace>
+    <RootNamespace>GMN.Platform</RootNamespace>
     <TargetFramework>net10.0</TargetFramework>
     <OptionStrict>On</OptionStrict>
   </PropertyGroup>
@@ -16,11 +15,8 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <PackageReference Include="Spectre.Console" Version="0.55.2" />
-  </ItemGroup>
-
-  <ItemGroup>
-    <ProjectReference Include="..\GMN.Platform\GMN.Platform.vbproj" />
+    <ProjectReference Include="..\GMN.Presentation\GMN.Presentation.vbproj" />
+    <ProjectReference Include="..\TGGD.Platform\TGGD.Platform.vbproj" />
   </ItemGroup>
 
 </Project>
