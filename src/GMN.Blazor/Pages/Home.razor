@@ -1,6 +1,7 @@
 ﻿@page "/"
 @using TGGD.Presentation
 @using TGGD.Platform
+@using TGGD.Persistence
 @using GMN.Platform
 
 <PageTitle>Guess My Number (1 - 100)</PageTitle>
@@ -49,7 +50,7 @@
 @code
 {
 	InputModel inputModel = new();
-	IDisplay display = GMNDisplay.Create(false);
+	IDisplay display = GMNDisplay.Create(false, new Persister());
 	void Choose(int choice)
 	{
 		display.Prompt.Respond(counter: choice);
@@ -82,6 +83,17 @@
 		{
 			display.Prompt.Respond(text: inputModel.StringValue);
 			inputModel.StringValue = null;
+		}
+	}
+	class Persister : IPersister
+	{
+		public void Save(string filename, string content)
+		{
+			throw new NotImplementedException();
+		}
+		public string Load(string filename)
+		{
+			throw new NotImplementedException();
 		}
 	}
 }
