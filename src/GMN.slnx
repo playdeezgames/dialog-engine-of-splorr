@@ -19,6 +19,9 @@
     <Project Path="GMN.Platform/GMN.Platform.vbproj" Id="d518f476-b969-46a9-af18-3516158e572c" />
     <Project Path="TGGD.Platform/TGGD.Platform.vbproj" Id="c9ee3578-1289-4864-ad74-6570b8d71b59" />
   </Folder>
+  <Folder Name="/_STUFF/">
+    <File Path="../README.md" />
+  </Folder>
   <Project Path="GMN.Blazor/GMN.Blazor.csproj" Id="081e2bb7-f034-4fdf-aded-45a6f6bc21b0" />
   <Project Path="GMN.Spectre/GMN.Spectre.vbproj" Id="cfdda54e-880a-4322-aab5-05da3458796b" />
 </Solution>
