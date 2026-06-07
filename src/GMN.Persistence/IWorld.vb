@@ -3,5 +3,5 @@ Imports TGGD.Persistence
 Public Interface IWorld
     Inherits IEntity
 
-    Sub Save(filename As String)
+    Function Save(filename As String) As Task
 End Interface

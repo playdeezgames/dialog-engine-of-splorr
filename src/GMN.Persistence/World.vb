@@ -13,9 +13,9 @@ Public Class World
     Protected Overrides ReadOnly Property Data As GMNData
     Private ReadOnly persister As IPersister
 
-    Public Sub Save(filename As String) Implements IWorld.Save
-        persister.SaveAsync(filename, JsonSerializer.Serialize(Data))
-    End Sub
+    Public Async Function Save(filename As String) As Task Implements IWorld.Save
+        Await persister.SaveAsync(filename, JsonSerializer.Serialize(Data))
+    End Function
 
     Public Shared Function Create(data As GMNData, persister As IPersister) As IWorld
         Return New World(data, persister)
