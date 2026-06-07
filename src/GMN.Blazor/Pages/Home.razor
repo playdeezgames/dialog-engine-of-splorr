@@ -3,10 +3,11 @@
 @using TGGD.Platform
 @using TGGD.Persistence
 @using GMN.Platform
+@inject IJSRuntime JSRuntime
 
 <PageTitle>Guess My Number (1 - 100)</PageTitle>
 
-@foreach(var element in display.Elements)
+@foreach(var element in display?.Elements ?? Array.Empty<IDisplayElement>())
 {
 	<span>@element.Text</span>
 	if(element.NewLine)
@@ -15,7 +16,7 @@
 	}
 }
 
-@switch(display.Prompt.PromptType)
+@switch(display?.Prompt?.PromptType)
 {
 	case DialogPromptType.PROMPT_CHOOSE:
 		<p>@display.Prompt.Title</p>
@@ -50,10 +51,20 @@
 @code
 {
 	InputModel inputModel = new();
-	IDisplay display = GMNDisplay.Create(false, new Persister());
-	void Choose(int choice)
+	IDisplay? display = null;
+	async Task<IDisplay> GetDisplayAsync()
 	{
-		display.Prompt.Respond(counter: choice);
+		display =  display ?? (await GMNDisplay.Create(false, new Persister(JSRuntime)));
+		return display;
+	}
+	protected override async Task OnInitializedAsync()
+	{
+		await GetDisplayAsync();
+		await base.OnInitializedAsync();
+	}
+	async Task Choose(int choice)
+	{
+		(await GetDisplayAsync()).Prompt.Respond(counter: choice);
 	}
 	class InputModel
 	{
@@ -61,39 +72,44 @@
 		public double? DoubleValue { get; set; }
 		public string? StringValue{ get; set; }
 	}
-	void HandleInteger()
+	async Task HandleInteger()
 	{
 		if (inputModel.IntegerValue != null)
 		{
-			display.Prompt.Respond(counter: inputModel.IntegerValue.Value);
+			(await GetDisplayAsync()).Prompt.Respond(counter: inputModel.IntegerValue.Value);
 			inputModel.IntegerValue = null;
 		}
 	}
-	void HandleDouble()
+	async Task HandleDouble()
 	{
 		if (inputModel.DoubleValue != null)
 		{
-			display.Prompt.Respond(dimension: inputModel.DoubleValue.Value);
+			(await GetDisplayAsync()).Prompt.Respond(dimension: inputModel.DoubleValue.Value);
 			inputModel.DoubleValue = null;
 		}
 	}
-	void HandleString()
+	async Task HandleString()
 	{
 		if (inputModel.StringValue != null)
 		{
-			display.Prompt.Respond(text: inputModel.StringValue);
+			(await GetDisplayAsync()).Prompt.Respond(text: inputModel.StringValue);
 			inputModel.StringValue = null;
 		}
 	}
-	class Persister : IPersister
+	class Persister(IJSRuntime JSRuntime) : IPersister
 	{
-		public void Save(string filename, string content)
+		public async Task SaveAsync(string filename, string content)
 		{
-			throw new NotImplementedException();
+			await JSRuntime.InvokeVoidAsync("saveGame", filename, content);
 		}
-		public string Load(string filename)
+		public async Task<string?> LoadAsync(string filename)
 		{
-			throw new NotImplementedException();
+			var data = await JSRuntime.InvokeAsync<string>("loadGame", filename);
+			if (data != null)
+			{
+				return data;
+			}
+			return null;
 		}
 	}
 }

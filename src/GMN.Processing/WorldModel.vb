@@ -100,10 +100,10 @@ Public Class WorldModel
         Entity.Save(Grimoire.SAVE_FILE_NAME)
     End Sub
 
-    Public Shared Function Create(quittable As Boolean, persister As IPersister) As IWorldModel
+    Public Shared Async Function Create(quittable As Boolean, persister As IPersister) As Task(Of IWorldModel)
         Dim world As IWorld
         Try
-            world = GMN.Persistence.World.Load(SAVE_FILE_NAME, persister)
+            world = Await GMN.Persistence.World.Load(SAVE_FILE_NAME, persister)
         Catch ex As Exception
             world = GMN.Persistence.World.Create(New Provision.GMNData, persister)
         End Try

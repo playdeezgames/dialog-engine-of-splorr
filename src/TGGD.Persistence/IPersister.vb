@@ -1,4 +1,4 @@
 ﻿Public Interface IPersister
-    Sub Save(filename As String, content As String)
-    Function Load(filename As String) As String
+    Function SaveAsync(filename As String, content As String) As Task
+    Function LoadAsync(filename As String) As Task(Of String)
 End Interface

@@ -36,5 +36,5 @@ Public MustInherit Class Display
         _elements.Add(DisplayElement.Create(text, mood, newLine))
     End Sub
 
-    Public MustOverride Sub Start() Implements IDisplay.Start
+    Public MustOverride Function Start() As Task Implements IDisplay.Start
 End Class

@@ -14,14 +14,14 @@ Public Class World
     Private ReadOnly persister As IPersister
 
     Public Sub Save(filename As String) Implements IWorld.Save
-        persister.Save(filename, JsonSerializer.Serialize(Data))
+        persister.SaveAsync(filename, JsonSerializer.Serialize(Data))
     End Sub
 
     Public Shared Function Create(data As GMNData, persister As IPersister) As IWorld
         Return New World(data, persister)
     End Function
 
-    Public Shared Function Load(filename As String, persister As IPersister) As IWorld
-        Return New World(JsonSerializer.Deserialize(Of GMNData)(persister.Load(filename)), persister)
+    Public Shared Async Function Load(filename As String, persister As IPersister) As Task(Of IWorld)
+        Return New World(JsonSerializer.Deserialize(Of GMNData)(Await persister.LoadAsync(filename)), persister)
     End Function
 End Class

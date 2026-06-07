@@ -14,13 +14,13 @@ Public Class GMNDisplay
         Me.persister = persister
     End Sub
 
-    Public Overrides Sub Start()
-        UpdateDialog(TitleDialog.Launch(Me, WorldModel.Create(quittable, persister), Function() Nothing).Invoke())
-    End Sub
+    Public Overrides Async Function Start() As Task
+        UpdateDialog(TitleDialog.Launch(Me, Await WorldModel.Create(quittable, persister), Function() Nothing).Invoke())
+    End Function
 
-    Public Shared Function Create(quittable As Boolean, persister As IPersister) As IDisplay
+    Public Shared Async Function Create(quittable As Boolean, persister As IPersister) As Task(Of IDisplay)
         Dim result = New GMNDisplay(quittable, persister)
-        result.Start()
+        Await result.Start()
         Return result
     End Function
 End Class
